@@ -74,8 +74,8 @@ public class Loops {
     }
     System.out.println(N + " rolls of 12 dice: " + counter12 + " ones");
     System.out.println(N + " rolls of 6 dice: " + counter6 + " ones");
-    System.out.println("Probability of 2 1's in 12 dice: " + ((double)counter12 / N) / 2);
-    System.out.println("Probability of 1's in 6 dice: " + ((double)counter6 / N));
+    System.out.println("Probability of 2 1's in 12 dice: " + ((((double)counter12 / N) / 2)));
+    System.out.println("Probability of 1's in 6 dice: " + (((double)counter6 / N)));
     }
 
 
@@ -83,19 +83,19 @@ public class Loops {
       final int Ntrials = n;
       int switchWins = 0;
       int stayWins = 0;
-      //monty hall simulation
+
       for (int i = 1; i <= Ntrials; i++) {
         int prize = (int)(Math.random() * 3) + 1;
         int guess = (int)(Math.random() * 3) + 1;
-        int reveal = (int)(Math.random() * 3) + 1;
+        int reveal = 1;
         while (reveal == prize || reveal == guess) {
-          //reveal cannot be the prize or the guess
-          reveal = (int)(Math.random() * 3) + 1;
+          //revealed door cannot be the prize or the original guess
+          reveal++;
         }
-        int switchGuess = (int)(Math.random() * 3) + 1;
+        int switchGuess = 1;
         while (switchGuess == guess || switchGuess == reveal) {
-          //switch guess cannot be the guess or the reveal
-          switchGuess = (int)(Math.random() * 3) + 1;
+          //switch guess cannot be the original guess or the revealed door
+          switchGuess++;
         }
         if (switchGuess == prize) switchWins++;
         if (guess == prize) stayWins++;
