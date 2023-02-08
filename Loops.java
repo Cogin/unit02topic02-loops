@@ -59,7 +59,7 @@ public class Loops {
   public static void pepysSumulation() {
     int counter12 = 0; 
     int counter6  = 0;
-    final int N = 1000000;
+    final int N = 10000;
     for (int j = 1; j <= N; j++) {
       //roll dice 12 times
       for (int i = 1; i <= 12; i++) {
@@ -74,8 +74,8 @@ public class Loops {
     }
     System.out.println(N + " rolls of 12 dice: " + counter12 + " ones");
     System.out.println(N + " rolls of 6 dice: " + counter6 + " ones");
-    System.out.println("Probability of 2 1's in 12 dice: " + ((((double)counter12 / N) / 2)));
-    System.out.println("Probability of 1's in 6 dice: " + (((double)counter6 / N)));
+    System.out.println("Probability of rolling 2 1's in 12 dice: " + (int)((((double)counter12 / N) / 2) * 100) + "%");
+    System.out.println("Probability of rolling a 1 in 6 dice: " + (int)(((double)counter6 / N) * 100) + "%");
     }
 
 
@@ -106,6 +106,7 @@ public class Loops {
       System.out.println("Switch wins: " + switchWins + "/"+ Ntrials);
       System.out.println("Stay wins: " + stayWins+ "/"+ Ntrials);
       System.out.println("Switch win rate: " + (int)(((double)switchWins / Ntrials) * 100) + "%");
+      System.out.println("Stay win rate: " + (int)(((double)stayWins / Ntrials) * 100) + "%");
 
       }
 
@@ -129,7 +130,7 @@ public class Loops {
     System.out.println("-----pepysSumulation-----");
     pepysSumulation();
     System.out.println("-----montyHallSimulation-----");
-    montyHallSimulation(100);
+    montyHallSimulation(1000);
 
   }
 }
